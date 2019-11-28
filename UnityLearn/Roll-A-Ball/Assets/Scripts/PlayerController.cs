@@ -18,4 +18,12 @@ public class PlayerController : MonoBehaviour
 
         _rigidBody.AddForce(new Vector3(moveHorizontal, 0f, moveVertical) * Speed);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Pickup"))
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
 }
